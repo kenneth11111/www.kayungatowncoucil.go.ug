@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kampala Capital City Authority</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        :root {
+            --primary: #0056a6;
+            --secondary: #ffcc00;
+            --accent: #e63946;
+            --dark: #333;
+            --light: #f8f9fa;
+            --gray: #6c757d;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: var(--dark);
+            line-height: 1.6;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 15px;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 8px 20px;
+            background: var(--primary);
+            color: white;
+            border-radius: 4px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .btn:hover {
+            background: #003d7a;
+            transform: translateY(-2px);
+        }
+
+        .header-top {
+            background: var(--primary);
+            color: white;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .header-top .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .social-links a {
+            margin-left: 15px;
+            font-size: 16px;
+        }
+
+        .header-main {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-main .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 60px;
+            margin-right: 10px;
+        }
+
+        .logo-text h1 {
+            font-size: 24px;
+            color: var(--primary);
+            line-height: 1.2;
+        }
+
+        .logo-text span {
+            font-size: 14px;
+            color: var(--gray);
+        }
+
+        .search-box {
+            display: flex;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+
+        .search-box input {
+            padding: 8px 12px;
+            border: none;
+            width: 250px;
+        }
+
+        .search-box button {
+            background: var(--primary);
+            color: white;
+            border: none;
+            padding: 0 15px;
+            cursor: pointer;
+        }
+
+        .main-nav {
+            background: var(--primary);
+        }
+
+        .main-nav ul {
+            display: flex;
+        }
+
+        .main-nav li {
+            position: relative;
+        }
+
+        .main-nav a {
+            color: white;
+            padding: 15px 20px;
+            display: block;
+            font-weight: 500;
+            transition: background 0.3s;
+        }
+
+        .main-nav a:hover {
+            background: rgba(255,255,255,0.1);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            background: white;
+            min-width: 200px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            display: none;
+            z-index: 100;
+        }
+
+        .dropdown-menu a {
+            color: var(--dark);
+            border-bottom: 1px solid #eee;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            font-size: 24px;
+            color: var(--primary);
+            cursor: pointer;
+        }
+
+        .hero {
+            position: relative;
+            height: 500px;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), url('https://images.unsplash.com/photo-1566400308809-29e3e0c6e70d?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero-content {
+            max-width: 600px;
+            padding: 0 20px;
+        }
+
+        .hero h2 {
+            font-size: 42px;
+            margin-bottom: 20px;
+            line-height: 1.2;
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 30px;
+        }
+
+        .services {
+            padding: 60px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .section-title h2 {
+            font-size: 32px;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+
+        .section-title p {
+            color: var(--gray);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .service-card {
+            background: var(--light);
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .service-icon {
+            height: 80px;
+            background: var(--primary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 32px;
+        }
+
+        .service-content {
+            padding: 25px;
+        }
+
+        .service-content h3 {
+            margin-bottom: 15px;
+            color: var(--primary);
+        }
+
+        .news {
+            padding: 60px 0;
+            background: var(--light);
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        }
+
+        .news-img {
+            height: 200px;
+            background: #ddd;
+            overflow: hidden;
+        }
+
+        .news-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+
+        .news-card:hover .news-img img {
+            transform: scale(1.05);
+        }
+
+        .news-content {
+            padding: 20px;
+        }
+
+        .news-date {
+            color: var(--gray);
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+
+        .news-content h3 {
+            margin-bottom: 10px;
+            color: var(--primary);
+        }
+
+        .news-content p {
+            margin-bottom: 15px;
+            color: var(--gray);
+        }
+
+        .footer {
+            background: var(--dark);
+            color: white;
+            padding: 60px 0 0;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-col h3 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            position: relative;
+            padding-bottom: 10px;
+        }
+
+        .footer-col h3::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 50px;
+            height: 2px;
+            background: var(--secondary);
+        }
+
+        .footer-links li {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #bbb;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--secondary);
+        }
+
+        .contact-info li {
+            display: flex;
+            margin-bottom: 15px;
+        }
+
+        .contact-info i {
+            margin-right: 10px;
+            color: var(--secondary);
+        }
+
+        .footer-bottom {
+            background: #222;
+            padding: 20px 0;
+            text-align: center;
+            color: #bbb;
+            font-size: 14px;
+        }
+
+        @media (max-width: 768px) {
+            .header-main .container {
+                flex-wrap: wrap;
+            }
+            
+            .logo {
+                margin-bottom: 15px;
+            }
+            
+            .search-box {
+                width: 100%;
+                margin-top: 15px;
+            }
+            
+            .search-box input {
+                width: 100%;
+            }
+            
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            .main-nav {
+                display: none;
+            }
+            
+            .main-nav.active {
+                display: block;
+            }
+            
+            .main-nav ul {
+                flex-direction: column;
+            }
+            
+            .dropdown-menu {
+                position: static;
+                box-shadow: none;
+                background: rgba(255,255,255,0.1);
+            }
+            
+            .hero {
+                height: 400px;
+            }
+            
+            .hero h2 {
+                font-size: 30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header-top">
+        <div class="container">
+            <div class="contact-info">
+                <span><i class="fas fa-phone"></i> +256 414 231 200</span>
+                <span style="margin-left: 20px;"><i class="fas fa-envelope"></i> info@kcca.go.ug</span>
+            </div>
+            <div class="social-links">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+            </div>
+        </div>
+    </div>
+
+    <header class="header-main">
+        <div class="container">
+            <div class="logo">
+                <img src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAxMDAgMTAwIj48cmVjdCB3aWR0aD0iMTAwIiBoZWlnaHQ9IjEwMCIgZmlsbD0iIzAwNTZhNiIvPjxjaXJjbGUgY3g9IjUwIiBjeT0iNTAiIHI9IjMwIiBmaWxsPSIjZmZjYzAwIi8+PHBhdGggZD0iTTQwIDQwIEw2MCA0MCBMNjAgNjAgTDQwIDYwIFoiIGZpbGw9IiMwMDU2YTYiLz48L3N2Zz4=" alt="KCCA Logo">
+                <div class="logo-text">
+                    <h1>KAMPALA CAPITAL CITY AUTHORITY</h1>
+                    <span>A City of Potential, Prosperity and Service Excellence</span>
+                </div>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Search...">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+            <button class="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <nav class="main-nav">
+        <div class="container">
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li class="dropdown">
+                    <a href="#">About KCCA <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="#">Our Vision & Mission</a>
+                        <a href="#">Leadership</a>
+                        <a href="#">Directorates</a>
+                        <a href="#">Strategic Plan</a>
+                    </div>
+                </li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Projects</a></li>
+                <li><a href="#">Media Center</a></li>
+                <li><a href="#">Tenders</a></li>
+                <li><a href="#">Careers</a></li>
+                <li><a href="#">Contact Us</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h2>Building a World Class City</h2>
+                <p>Kampala Capital City Authority is committed to transforming Kampala into a vibrant, attractive and sustainable city.</p>
+                <a href="#" class="btn btn-secondary">Learn More</a>
+            </div>
+        </div>
+    </section>
+
+    <section class="services">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Services</h2>
+                <p>We provide a wide range of services to residents, businesses and visitors in Kampala</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Property Rates</h3>
+                        <p>Pay your property rates online or at designated collection points across the city.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-trash"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Waste Management</h3>
+                        <p>Report waste management issues and learn about our garbage collection schedule.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+                <div class="service-card">
+                    <div class="service-icon">
+                        <i class="fas fa-road"></i>
+                    </div>
+                    <div class="service-content">
+                        <h3>Road Infrastructure</h3>
+                        <p>Information on road construction, maintenance and traffic management in Kampala.</p>
+                        <a href="#" class="btn">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="news">
+        <div class="container">
+            <div class="section-title">
+                <h2>Latest News & Updates</h2>
+                <p>Stay informed with the latest developments and announcements from KCCA</p>
+            </div>
+            <div class="news-grid">
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1561484936-3f79fdc2bd38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Road Construction">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">June 15, 2023</div>
+                        <h3>Kampala Inner Ring Road Rehabilitation Project</h3>
+                        <p>The rehabilitation of the Kampala Inner Ring Road is set to begin next month.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Waste Management">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">June 10, 2023</div>
+                        <h3>New Waste Collection Schedule for Central Division</h3>
+                        <p>KCCA announces revised waste collection schedule effective July 1st, 2023.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+                <div class="news-card">
+                    <div class="news-img">
+                        <img src="https://images.unsplash.com/photo-1551836026-d5c8c1d23150?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Business Registration">
+                    </div>
+                    <div class="news-content">
+                        <div class="news-date">June 5, 2023</div>
+                        <h3>Streamlined Business Licensing Process Launched</h3>
+                        <p>KCCA introduces a new online portal for business registration and licensing.</p>
+                        <a href="#" class="btn">Read More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Home</a></li>
+                        <li><a href="#">About KCCA</a></li>
+                        <li><a href="#">Services</a></li>
+                        <li><a href="#">Projects</a></li>
+                        <li><a href="#">Media Center</a></li>
+                        <li><a href="#">Tenders</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Our Services</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Property Rates</a></li>
+                        <li><a href="#">Business Licensing</a></li>
+                        <li><a href="#">Waste Management</a></li>
+                        <li><a href="#">Road Infrastructure</a></li>
+                        <li><a href="#">Public Health</a></li>
+                        <li><a href="#">Education</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Us</h3>
+                    <ul class="contact-info">
+                        <li>
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Plot 1-3 Sir Apollo Kaggwa Road, Kampala, Uganda</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-phone"></i>
+                            <span>+256 414 231 200</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-envelope"></i>
+                            <span>info@kcca.go.ug</span>
+                        </li>
+                        <li>
+                            <i class="fas fa-clock"></i>
+                            <span>Mon - Fri: 8:00 AM - 5:00 PM</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <div class="container">
+                <p>&copy; 2023 Kampala Capital City Authority. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
+            document.querySelector('.main-nav').classList.toggle('active');
+        });
+
+        if (window.innerWidth <= 768) {
+            const dropdowns = document.querySelectorAll('.dropdown');
+            dropdowns.forEach(dropdown => {
+                dropdown.addEventListener('click', function(e) {
+                    if (e.target.classList.contains('dropdown') || e.target.tagName === 'A') {
+                        this.querySelector('.dropdown-menu').classList.toggle('active');
+                    }
+                });
+            });
+        }
+    </script>
+</body>
+</html>
