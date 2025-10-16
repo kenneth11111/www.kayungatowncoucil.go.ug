@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kayunga Town Council</title>
+    <title>Kampala Capital City Authority</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         * {
@@ -46,17 +46,28 @@
 
         .btn {
             display: inline-block;
-            padding: 8px 20px;
+            padding: 10px 20px;
             background: var(--primary);
             color: white;
             border-radius: 4px;
             font-weight: 600;
             transition: all 0.3s ease;
+            border: none;
+            cursor: pointer;
         }
 
         .btn:hover {
             background: #003d7a;
             transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: var(--secondary);
+            color: var(--dark);
+        }
+
+        .btn-secondary:hover {
+            background: #e6b800;
         }
 
         .header-top {
@@ -75,6 +86,11 @@
         .social-links a {
             margin-left: 15px;
             font-size: 16px;
+            transition: color 0.3s;
+        }
+
+        .social-links a:hover {
+            color: var(--secondary);
         }
 
         .header-main {
@@ -136,6 +152,10 @@
 
         .main-nav {
             background: var(--primary);
+        }
+
+        .main-nav .container {
+            position: relative;
         }
 
         .main-nav ul {
@@ -387,6 +407,7 @@
             font-size: 14px;
         }
 
+        /* Mobile Responsiveness */
         @media (max-width: 768px) {
             .header-main .container {
                 flex-wrap: wrap;
@@ -433,6 +454,15 @@
             
             .hero h2 {
                 font-size: 30px;
+            }
+            
+            .header-top .container {
+                flex-direction: column;
+                gap: 10px;
+            }
+            
+            .social-links {
+                margin-top: 5px;
             }
         }
     </style>
@@ -509,158 +539,3 @@
         <div class="container">
             <div class="section-title">
                 <h2>Our Services</h2>
-                <p>We provide a wide range of services to residents, businesses and visitors in Kampala</p>
-            </div>
-            <div class="services-grid">
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-home"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Property Rates</h3>
-                        <p>Pay your property rates online or at designated collection points across the city.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-trash"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Waste Management</h3>
-                        <p>Report waste management issues and learn about our garbage collection schedule.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-                <div class="service-card">
-                    <div class="service-icon">
-                        <i class="fas fa-road"></i>
-                    </div>
-                    <div class="service-content">
-                        <h3>Road Infrastructure</h3>
-                        <p>Information on road construction, maintenance and traffic management in Kampala.</p>
-                        <a href="#" class="btn">Learn More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="news">
-        <div class="container">
-            <div class="section-title">
-                <h2>Latest News & Updates</h2>
-                <p>Stay informed with the latest developments and announcements from KCCA</p>
-            </div>
-            <div class="news-grid">
-                <div class="news-card">
-                    <div class="news-img">
-                        <img src="https://images.unsplash.com/photo-1561484936-3f79fdc2bd38?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Road Construction">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-date">June 15, 2023</div>
-                        <h3>Kampala Inner Ring Road Rehabilitation Project</h3>
-                        <p>The rehabilitation of the Kampala Inner Ring Road is set to begin next month.</p>
-                        <a href="#" class="btn">Read More</a>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img">
-                        <img src="https://images.unsplash.com/photo-1582213782179-e0d53f98f2ca?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Waste Management">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-date">June 10, 2023</div>
-                        <h3>New Waste Collection Schedule for Central Division</h3>
-                        <p>KCCA announces revised waste collection schedule effective July 1st, 2023.</p>
-                        <a href="#" class="btn">Read More</a>
-                    </div>
-                </div>
-                <div class="news-card">
-                    <div class="news-img">
-                        <img src="https://images.unsplash.com/photo-1551836026-d5c8c1d23150?ixlib=rb-4.0.3&auto=format&fit=crop&w=1470&q=80" alt="Business Registration">
-                    </div>
-                    <div class="news-content">
-                        <div class="news-date">June 5, 2023</div>
-                        <h3>Streamlined Business Licensing Process Launched</h3>
-                        <p>KCCA introduces a new online portal for business registration and licensing.</p>
-                        <a href="#" class="btn">Read More</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="footer-grid">
-                <div class="footer-col">
-                    <h3>Quick Links</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Home</a></li>
-                        <li><a href="#">About KCCA</a></li>
-                        <li><a href="#">Services</a></li>
-                        <li><a href="#">Projects</a></li>
-                        <li><a href="#">Media Center</a></li>
-                        <li><a href="#">Tenders</a></li>
-                        <li><a href="#">Careers</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Our Services</h3>
-                    <ul class="footer-links">
-                        <li><a href="#">Property Rates</a></li>
-                        <li><a href="#">Business Licensing</a></li>
-                        <li><a href="#">Waste Management</a></li>
-                        <li><a href="#">Road Infrastructure</a></li>
-                        <li><a href="#">Public Health</a></li>
-                        <li><a href="#">Education</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h3>Contact Us</h3>
-                    <ul class="contact-info">
-                        <li>
-                            <i class="fas fa-map-marker-alt"></i>
-                            <span>Plot 1-3 Sir Apollo Kaggwa Road, Kampala, Uganda</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-phone"></i>
-                            <span>+256 414 231 200</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-envelope"></i>
-                            <span>info@kcca.go.ug</span>
-                        </li>
-                        <li>
-                            <i class="fas fa-clock"></i>
-                            <span>Mon - Fri: 8:00 AM - 5:00 PM</span>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="footer-bottom">
-            <div class="container">
-                <p>&copy; 2023 Kampala Capital City Authority. All Rights Reserved.</p>
-            </div>
-        </div>
-    </footer>
-
-    <script>
-        document.querySelector('.mobile-menu-btn').addEventListener('click', function() {
-            document.querySelector('.main-nav').classList.toggle('active');
-        });
-
-        if (window.innerWidth <= 768) {
-            const dropdowns = document.querySelectorAll('.dropdown');
-            dropdowns.forEach(dropdown => {
-                dropdown.addEventListener('click', function(e) {
-                    if (e.target.classList.contains('dropdown') || e.target.tagName === 'A') {
-                        this.querySelector('.dropdown-menu').classList.toggle('active');
-                    }
-                });
-            });
-        }
-    </script>
-</body>
-</html>
